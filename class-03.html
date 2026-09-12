@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0E2A47"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>03 · AI&AA — Regulamento e Leituras-tipo | FAUL IAAA</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230E2A47'/%3E%3Ctext x='32' y='43' font-family='Arial,Helvetica,sans-serif' font-size='30' font-weight='bold' fill='%23FFC72C' text-anchor='middle'%3E03%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/theme/white.min.css">
+<style>
+:root{--faul:#0E2A47;--lime:#E8E0D0;--tram:#FFC72C;--terra:#D96C4A;--ink:#142133;--muted:#5b6b82;--topH:52px}
+*{box-sizing:border-box}
+html,body{height:100%;overscroll-behavior-y:none}
+body{margin:0;-webkit-text-size-adjust:100%}
+.reveal{font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);height:100dvh}
+.reveal .slides{padding-top:var(--topH)}
+.reveal .slides section{padding:12px 2.5vw 16px;text-align:left;overflow-y:auto;overflow-x:hidden;max-height:calc(100dvh - var(--topH) - 8px);scrollbar-width:none;-ms-overflow-style:none}
+.reveal .slides section::-webkit-scrollbar{display:none;width:0;height:0}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;gap:8px;justify-content:space-between;align-items:center;min-height:var(--topH);padding:5px 14px;padding-top:calc(5px + env(safe-area-inset-top));background:var(--faul);color:#fff;font-size:13px}
+.topbar>div{display:flex;align-items:center;gap:8px;min-width:0;flex-wrap:wrap}
+.topbar img.brand{height:calc(var(--topH) - 10px);max-height:46px;width:auto;display:block}
+.topbar .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:999px;padding:4px 10px;margin-left:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:62vw}
+#langBtn{background:var(--tram);border:none;border-radius:999px;padding:10px 16px;min-height:44px;min-width:84px;font-weight:800;cursor:pointer;flex-shrink:0}
+h1{font-size:clamp(26px,4.6vw,54px);color:var(--faul);line-height:1.05;margin:.2em 0}
+h2{font-size:clamp(21px,3.2vw,36px);color:var(--faul);margin:.15em 0 .3em}
+.sub{color:var(--muted);font-size:clamp(14px,1.75vw,19px)}
+.badge{display:inline-block;background:var(--tram);border-radius:999px;padding:6px 12px;font-weight:800;font-size:12px;color:#111;max-width:100%}
+.card{background:#f6f3ea;border:1px solid #e4dcc8;border-radius:16px;padding:14px 16px;font-size:clamp(13px,1.6vw,17px)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.step{background:#fff;border-left:8px solid var(--tram);border-radius:0 14px 14px 0;padding:10px 12px;box-shadow:0 4px 18px rgba(14,42,71,.08);font-size:clamp(13px,1.6vw,16px)}
+.tag{display:inline-block;font-size:12px;font-weight:800;background:var(--faul);color:#fff;border-radius:999px;padding:3px 10px;margin-right:6px}
+.tag.y{background:var(--tram);color:#111}.tag.t{background:var(--terra)}
+.imgph{background:repeating-linear-gradient(135deg,#e9e2cf,#e9e2cf 12px,#f6f3ea 12px,#f6f3ea 24px);border:2px dashed #b9ad8d;border-radius:14px;min-height:120px;display:flex;align-items:center;justify-content:center;color:#6b5f45;font-size:13px;text-align:center;padding:10px}.mapwrap{position:relative;border-radius:14px;overflow:hidden;border:1px solid #d9d2bd;background:#e9e2cf}
+.mapstage{position:relative}
+.mapstage iframe{position:relative;z-index:0}
+.mapread{position:absolute;left:10px;bottom:10px;z-index:5;max-width:calc(100% - 20px);background:rgba(14,42,71,.93);color:#eef3ff;border-radius:10px;padding:8px 12px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;line-height:1.5;pointer-events:none}
+.mapread b{color:var(--tram)}
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mosaic .tile{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid #d9d2bd;aspect-ratio:4/3;background:#e9e2cf}
+.mosaic .tile img{width:100%;height:100%;object-fit:cover;display:block}
+.mosaic .tile span{position:absolute;left:0;right:0;bottom:0;background:rgba(14,42,71,.88);color:#fff;font-size:11px;font-weight:700;padding:5px 8px}
+@media(max-width:768px){.mosaic{grid-template-columns:repeat(2,1fr)}}
+.mosaic.six{grid-template-columns:repeat(6,1fr);margin-top:12px}
+@media(max-width:768px){.mosaic.six{grid-template-columns:repeat(3,1fr)}}
+.vernac{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px;margin-top:10px}
+.vernac .vtile{position:relative;display:block;border-radius:10px;overflow:hidden;border:1px solid #d9d2bd;aspect-ratio:4/3;background:#e9e2cf}
+.vernac .vtile img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.06) sepia(.22);transition:filter .25s}
+.vernac .vtile:hover img,.vernac .vtile:focus-visible img{filter:none}
+.vernac .vtile span{position:absolute;left:0;right:0;bottom:0;background:rgba(14,42,71,.88);color:#fff;font-size:10.5px;font-weight:700;padding:4px 7px}
+.abbr{border-bottom:1px dotted var(--faul);cursor:help;position:relative}
+.abbr::after{content:attr(data-def);position:absolute;left:50%;bottom:135%;transform:translateX(-50%) scale(.96);background:var(--faul);color:#fff;font-size:12px;font-weight:600;line-height:1.4;padding:7px 10px;border-radius:10px;width:max-content;max-width:240px;white-space:normal;opacity:0;pointer-events:none;transition:opacity .15s;z-index:400;box-shadow:0 10px 30px rgba(14,42,71,.3)}
+.abbr:hover::after,.abbr:focus-visible::after{opacity:1;transform:translateX(-50%) scale(1)}
+.abbr:focus{outline:none}.mapwrap iframe{width:100%;height:min(300px,38vh);border:0;display:block}.mapsearch{display:flex;gap:8px;padding:10px;background:#fff;border-bottom:1px solid #d9d2bd}.mapsearch input{flex:1;min-width:0;min-height:44px;border:1.5px solid var(--faul);border-radius:999px;padding:8px 14px;font:inherit;font-size:14px;color:var(--ink)}.mapsearch button{flex-shrink:0;min-height:44px;border:none;border-radius:999px;padding:10px 18px;background:var(--tram);font-weight:800;font-size:13px;color:#111;cursor:pointer}
+.linkbtns{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.linkbtns a{flex:1;min-width:120px;text-align:center;text-decoration:none;background:var(--faul);color:#fff;border-radius:999px;padding:10px 14px;min-height:44px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px}
+.fld{font:inherit;font-size:13px;color:var(--ink);border:1.5px solid #b9ad8d;border-radius:10px;padding:9px 11px;min-height:44px;background:#fff;width:100%}
+textarea.fld{resize:vertical}
+
+.prompt{background:#0f1f38;color:#eef3ff;border-radius:12px;padding:12px 14px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:clamp(11px,1.4vw,13.5px);line-height:1.55;white-space:pre-wrap;word-break:break-word}
+small.src{color:var(--muted);font-size:12px}ul.tight li{margin:.3em 0}ul.tight{font-size:clamp(14px,1.8vw,19px)}
+.nuts{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}.nut{background:#fff;border:1.5px solid var(--faul);border-radius:999px;padding:6px 11px;font-size:12px;font-weight:600;font-family:inherit;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s}.nut:hover,.nut:focus-visible,.nut[aria-expanded="true"]{background:var(--faul);color:#fff;border-color:var(--faul);outline:none}#nutFly{position:fixed;z-index:200;width:min(340px,86vw);max-height:calc(100dvh - 76px);display:flex;flex-direction:column;background:#fff;border:1px solid #d9d2bd;border-radius:16px;box-shadow:0 18px 50px rgba(14,42,71,.28);overflow:hidden;opacity:0;pointer-events:none;transform:translateY(6px) scale(.98);transition:opacity .16s,transform .16s}#nutFly.show{opacity:1;pointer-events:none;transform:translateY(0) scale(1)}
+#nutFly.show.locked{pointer-events:auto}#nutFly img{display:block;width:100%;height:clamp(120px,24vh,190px);object-fit:cover;background:#e9e2cf;flex-shrink:0}#nutFly .fly-body{padding:10px 12px 11px;overflow-y:auto}#nutFly .fly-body strong{display:block;color:var(--faul);font-size:14px}#nutFly .fly-body span{display:block;font-size:12.5px;color:var(--ink);margin-top:2px}#nutFly .fly-body small{display:block;font-size:11px;color:var(--muted);margin-top:6px}#nutFly .fly-links{font-size:12px;margin-top:8px}#nutFly .fly-links a{color:var(--faul);font-weight:700}.pcard{font:inherit;color:inherit;text-align:left;cursor:pointer}.pcard:hover,.pcard:focus-visible{border-color:var(--faul);box-shadow:0 6px 22px rgba(14,42,71,.16);outline:none}#promptFly{position:fixed;z-index:200;width:min(520px,90vw);max-height:min(70dvh,540px);display:flex;flex-direction:column;background:#fff;border:1px solid #d9d2bd;border-radius:16px;box-shadow:0 18px 50px rgba(14,42,71,.28);overflow:hidden;opacity:0;pointer-events:none;transform:translateY(6px) scale(.98);transition:opacity .16s,transform .16s}#promptFly.show{opacity:1;pointer-events:auto;transform:translateY(0) scale(1)}#promptFly.show.locked{pointer-events:auto}#promptFly .fly-body{padding:12px 14px;overflow-y:auto}#promptFly .fly-body strong{display:block;color:var(--faul);font-size:14px}#promptFly .fly-prompt{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12px;line-height:1.55;white-space:pre-wrap;word-break:break-word;background:#0f1f38;color:#eef3ff;border-radius:10px;padding:10px 12px;overflow-y:auto;margin-top:8px;max-height:38dvh}#promptFly .fly-copy{margin-top:10px;background:var(--tram);border:none;border-radius:999px;padding:10px 16px;min-height:44px;font-weight:800;font-size:13px;color:#111;cursor:pointer}#promptFly small{display:block;font-size:11px;color:var(--muted);margin-top:8px}
+/* Laptops: tighten on short screens */
+@media(max-height:800px){h1{font-size:clamp(24px,4vw,44px)}h2{font-size:clamp(20px,2.8vw,30px)}.imgph{min-height:96px}}
+/* Tablets */
+@media(max-width:1024px){.grid3{grid-template-columns:1fr 1fr}}
+/* Mobile */
+@media(max-width:768px){
+:root{--topH:60px}
+.reveal .slides section{padding:10px 4vw 80px}
+.grid2,.grid3{grid-template-columns:1fr}
+.topbar{font-size:12px}
+.topbar .pill{display:none}
+#langBtn{padding:10px 12px;min-width:72px}
+.nuts span{font-size:11px;padding:6px 9px}
+.reveal .controls{bottom:calc(12px + env(safe-area-inset-bottom))}
+.reveal .progress{height:3px}
+.swipe-hint{display:block !important}
+}
+.swipe-hint{display:none;font-size:12px;color:var(--muted);margin-top:8px}
+@media print{.topbar{display:none}.reveal .slides section{max-height:none;overflow:visible}}
+</style>
+</head>
+<body>
+<div class="topbar"><div><img class="brand" src="https://www.fa.ulisboa.pt/images/20222023/LOGOSITE/LogoBilingue_FA_horizontal_branco.png" alt="Faculdade de Arquitetura — Universidade de Lisboa" onerror="this.outerHTML='<b>FAUL · ULisboa</b>'"><span class="pill">Site Analysis Class 03</span></div><button id="langBtn">EN / PT</button></div>
+<div class="reveal"><div class="slides">
+
+<section>
+<h2 class="i18n" data-pt="P4. Enquadramento regulamentar" data-en="P4. Regulatory framing">P4. Enquadramento regulamentar</h2>
+<div class="prompt">P4: Apresenta-se o extrato do PDM [transcrever parágrafo/artigo e condicionantes]. Solicita-se a reformulação em linguagem corrente: altura, índice, ocupação, afastamentos e património. Indicar o que determinaria a reprovação e um parágrafo de risco. Não deverão ser invocados artigos não fornecidos.</div>
+<p class="sub i18n" data-pt="Na ausência de extrato anexado, o resultado será necessariamente provisório, devendo a plataforma assinalar a insuficiência de dados." data-en="Without an attached extract, the result shall remain provisional, and the platform is expected to flag insufficient data.">Na ausência de extrato anexado, o resultado será necessariamente provisório, devendo a plataforma assinalar a insuficiência de dados.</p>
+<div class="card" style="margin-top:10px"><span class="tag y i18n" data-pt="NOTA" data-en="NOTE">NOTA</span><span class="i18n" data-pt=" O PDM em vigor deve ser consultado no sítio eletrónico da autarquia do município do sítio — regulamento, planta de ordenamento e planta de condicionantes. O extrato anexado indica a data de consulta." data-en=" The current PDM must be consulted on the municipal authority's website — regulations, land-use plan and constraints plan. The attached extract states the consultation date."> O PDM em vigor deve ser consultado no sítio eletrónico da autarquia do município do sítio — regulamento, planta de ordenamento e planta de condicionantes. O extrato anexado indica a data de consulta.</span></div>
+<div class="card" style="margin-top:10px;border:2px solid var(--faul)"><b class="i18n" data-pt="P4-WEB — pesquisar a regulamentação na internet (antes do P4):" data-en="P4-WEB — research regulation online (before P4):">P4-WEB — pesquisar a regulamentação na internet (antes do P4):</b>
+<div class="prompt" style="margin-top:8px">P4-WEB: Para o município [nome] e o sítio [morada/coords], pesquisar na internet a regulamentação urbanística aplicável a uma intervenção de arquitetura: (1) PDM em vigor — regulamento (uso, altura, índice, ocupação, afastamentos), planta de ordenamento e planta de condicionantes, com data de publicação em Diário da República; (2) regulamentos municipais complementares (edificação, taxas, património); (3) enquadramento nacional — RJUE (DL 555/99), RGEU e legislação da profissão (Ordem dos Arquitectos). Devolver por fonte: designação, data, ligação e extrato aplicável ao sítio (máx. 3 linhas cada). Sem ligação verificável, declarar “não confirmado”. Nada de artigos inventados.</div>
+<small class="src i18n" data-pt="Corre-se antes do P4 e alimenta o extrato + o ponto 1 da validação." data-en="Run before P4; feeds the extract + validation item 1.">Corre-se antes do P4 e alimenta o extrato + o ponto 1 da validação.</small></div>
+<div class="linkbtns"><a href="https://www.ordemdosarquitectos.org/legislacao" target="_blank" rel="noopener" class="i18n" data-pt="Legislação — Ordem dos Arquitectos" data-en="Legislation — Ordem dos Arquitectos">Legislação — Ordem dos Arquitectos</a></div>
+</section>
+
+<section>
+<h2 class="i18n" data-pt="Aplicabilidade nacional: três leituras-tipo" data-en="National applicability: three sample readings">Aplicabilidade nacional: três leituras-tipo</h2>
+<div class="grid3">
+<div class="card"><b>Grande Lisboa / Marvila</b><br><small class="i18n" data-pt="sobreaquecimento, ruído, património — pátio de sombra, abertura à brisa" data-en="overheating, noise, heritage — shaded courtyard, opening to the breeze">sobreaquecimento, ruído, património — pátio de sombra, abertura à brisa</small></div>
+<div class="card"><b>Algarve / Olhão</b><br><small class="i18n" data-pt="temperatura extrema e escassez hídrica — massa branca, vãos poente reduzidos" data-en="extreme temperature and water scarcity — white mass, reduced west openings">temperatura extrema e escassez hídrica — massa branca, vãos poente reduzidos</small></div>
+<div class="card"><b>Madeira / Funchal</b><br><small class="i18n" data-pt="declive e humidade — implantação em socalcos, base maciça" data-en="slope and humidity — terraced siting, massive base">declive e humidade — implantação em socalcos, base maciça</small></div>
+</div>
+<p class="sub i18n" data-pt="O procedimento é idêntico; variam apenas os anexos e a ponderação. É esta constância que assegura a comparabilidade entre as 26 sub-regiões." data-en="The procedure is identical; only attachments and weighting vary. This consistency ensures comparability across the 26 sub-regions.">O procedimento é idêntico; variam apenas os anexos e a ponderação. É esta constância que assegura a comparabilidade entre as 26 sub-regiões.</p>
+<h2 class="i18n" style="font-size:clamp(19px,2.4vw,28px)" data-pt="Banco vernacular por NUTS III — estética de arquivo" data-en="Vernacular bank by NUTS III — archival aesthetic">Banco vernacular por NUTS III — estética de arquivo</h2>
+<div class="vernac">
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Granaries_in_Soajo_01.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-01/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Granaries%20in%20Soajo%2001.jpg?width=480" alt="Espigueiros, Alto Minho"><span>Espigueiros · Alto Minho</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Palácio_do_Raio_-_Braga_-_Portugal_(9468865333).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-02/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pal%C3%A1cio%20do%20Raio%20-%20Braga%20-%20Portugal%20(9468865333).jpg?width=480" alt="Azulejo barroco, Braga"><span>Azulejo barroco · Cávado</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Historic_centre,_Guimaraes_(40156714393).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-03/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Historic%20centre%2C%20Guimaraes%20(40156714393).jpg?width=480" alt="Granito medieval, Guimarães"><span>Granito medieval · Ave</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Douro_River,_Porto,_Portugal_(53973584942).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-04/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Douro%20River%2C%20Porto%2C%20Portugal%20(53973584942).jpg?width=480" alt="Ribeira, Porto"><span>Ribeira · Porto</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Pitoes_das_Junias_(16758487428).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-05/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Pitoes%20das%20Junias%20(16758487428).jpg?width=480" alt="Pitões das Júnias, Barroso"><span>Pitões · Barroso</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Tamega_River_in_Amarante_(2).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-06/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tamega%20River%20in%20Amarante%20(2).jpg?width=480" alt="Ponte e rio, Amarante"><span>Ponte e rio · Tâmega e Sousa</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Região_do_Alto_Douro_-_Socalcos_à_margem_do_rio_Douro_(4).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-07/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Regi%C3%A3o%20do%20Alto%20Douro%20-%20Socalcos%20%C3%A0%20margem%20do%20rio%20Douro%20(4).jpg?width=480" alt="Socalcos, Douro"><span>Socalcos · Douro</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:CASTELO_DE_BRAGANÇA_2.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-08/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/CASTELO%20DE%20BRAGAN%C3%87A%202.jpg?width=480" alt="Cidadela, Bragança"><span>Cidadela · Trás-os-Montes</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Aveiro_-_Ilhavo_-_Palheiros_da_Costa_Nova_-_02.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-09/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Aveiro%20-%20Ilhavo%20-%20Palheiros%20da%20Costa%20Nova%20-%2002.jpg?width=480" alt="Palheiros, Costa Nova"><span>Palheiros · Costa Nova</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Aldeia_de_Xisto_-_Talasnal_-_Lousã.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-10/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Aldeia%20de%20Xisto%20-%20Talasnal%20-%20Lous%C3%A3.jpg?width=480" alt="Xisto, Talasnal, Lousã"><span>Xisto · Lousã</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Batalha_September_2021-2.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-11/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Batalha%20September%202021-2.jpg?width=480" alt="Calcário, Batalha"><span>Calcário · Batalha</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Sé_Catedral_de_Viseu_(32461422517).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-12/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/S%C3%A9%20Catedral%20de%20Viseu%20(32461422517).jpg?width=480" alt="Granito, Viseu"><span>Granito · Viseu</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Monsanto_April_2015-10.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-13/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Monsanto%20April%202015-10.jpg?width=480" alt="Monsanto, Beira Baixa"><span>Monsanto · Beira Baixa</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Loriga,_Wikicon_Seia_2025,_Grande_Rallye_de_fotografia_Serra_da_Estrela,_Grupo_X_34.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-14/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Loriga%2C%20Wikicon%20Seia%202025%2C%20Grande%20Rallye%20de%20fotografia%20Serra%20da%20Estrela%2C%20Grupo%20X%2034.jpg?width=480" alt="Loriga, Serra da Estrela"><span>Granito · Loriga</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Castillo_de_Óbidos,_Óbidos,_Portugal,_2021-09-09,_DD_24.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-15/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Castillo%20de%20%C3%93bidos%2C%20%C3%93bidos%2C%20Portugal%2C%202021-09-09%2C%20DD%2024.jpg?width=480" alt="Muralhas, Óbidos"><span>Muralhas · Óbidos</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Convento_de_Cristo_-_Church_from_Garden.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-16/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Convento%20de%20Cristo%20-%20Church%20from%20Garden.jpg?width=480" alt="Tomar, Médio Tejo"><span>Pedra · Tomar</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Portas_do_Sol_-_Santarém_-_Portugal_(4531614261).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-17/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Portas%20do%20Sol%20-%20Santar%C3%A9m%20-%20Portugal%20(4531614261).jpg?width=480" alt="Lezíria, Santarém"><span>Lezíria · Santarém</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Torre_Belém_April_2009-4a.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-18/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Torre%20Bel%C3%A9m%20April%202009-4a.jpg?width=480" alt="Calcário, Lisboa"><span>Calcário · Lisboa</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Parque_Natural_da_Arrábida,_Setúbal,_Portugal,_2012-05-11,_DD_08.JPG" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-19/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Parque%20Natural%20da%20Arr%C3%A1bida%2C%20Set%C3%BAbal%2C%20Portugal%2C%202012-05-11%2C%20DD%2008.JPG?width=480" alt="Serra-mar, Arrábida"><span>Serra-mar · Arrábida</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Vila_Nova_de_Milfontes_(92128978).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-20/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vila%20Nova%20de%20Milfontes%20(92128978).jpg?width=480" alt="Costa, Milfontes"><span>Costa · Milfontes</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Castelo_de_Beja._Panorama.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-21/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Castelo%20de%20Beja.%20Panorama.jpg?width=480" alt="Planície, Beja"><span>Planície · Beja</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Landscape_near_Marvão.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-22/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Landscape%20near%20Marv%C3%A3o.jpg?width=480" alt="Marvão, Alto Alentejo"><span>Muralha · Marvão</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Templo_Romano_de_Diana_-_Évora_-_Portugal_(296376498).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-23/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Templo%20Romano%20de%20Diana%20-%20%C3%89vora%20-%20Portugal%20(296376498).jpg?width=480" alt="Cal, Évora"><span>Cal · Évora</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Olhao_(Portugal)_(49673392598).jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-24/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Olhao%20(Portugal)%20(49673392598).jpg?width=480" alt="Cubos, Olhão"><span>Cubos · Olhão</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Lagoa_das_Sete_Cidades,_São_Miguel.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-25/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lagoa%20das%20Sete%20Cidades%2C%20S%C3%A3o%20Miguel.jpg?width=480" alt="Caldeira, Sete Cidades"><span>Caldeira · Sete Cidades</span></a>
+<a class="vtile" href="https://commons.wikimedia.org/wiki/File:Vista_de_Funchal_desde_Cabo_Girão,_Madeira,_Portugal,_2019-05-30,_DD_59.jpg" target="_blank" rel="noopener"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='https://picsum.photos/seed/vern-26/480/360'" src="https://commons.wikimedia.org/wiki/Special:FilePath/Vista%20de%20Funchal%20desde%20Cabo%20Gir%C3%A3o%2C%20Madeira%2C%20Portugal%2C%202019-05-30%2C%20DD%2059.jpg?width=480" alt="Socalcos, Funchal"><span>Socalcos · Funchal</span></a>
+</div>
+<div class="card" style="margin-top:10px"><span class="tag y i18n" data-pt="ARQUIVO" data-en="ARCHIVE">ARQUIVO</span><span class="i18n" data-pt=" Estética de arquivo na linhagem dos grandes fotógrafos portugueses do século XX — Artur Pastor (Algarve, Alentejo e Ribatejo), Mário Novais e Horácio Novais (arquitetura), Gérard Castello-Lopes, Augusto Cabrita e Eduardo Gageiro — e do Inquérito à Arquitectura Popular em Portugal (SNA, 1961; OA, 2004). O banco percorre todo o país, do Minho às 26 NUTS III do continente e às regiões autónomas: as imagens são fotografias contemporâneas sob licença livre; os originais consultam-se no Centro Português de Fotografia (Porto) e no Arquivo Fotográfico do Arquivo Municipal de Lisboa." data-en=" Archival aesthetic in the lineage of the great 20th-century Portuguese photographers — Artur Pastor (Algarve, Alentejo and Ribatejo), Mário Novais and Horácio Novais (architecture), Gérard Castello-Lopes, Augusto Cabrita and Eduardo Gageiro — and the Survey of Popular Architecture in Portugal (SNA, 1961; OA, 2004). The bank spans the whole country, from Minho across the 26 mainland NUTS III to the autonomous regions: images are contemporary freely-licensed photographs; originals are held at the Centro Português de Fotografia (Porto) and the Photographic Archive of the Lisbon Municipal Archive."> Estética de arquivo na linhagem dos grandes fotógrafos portugueses do século XX — Artur Pastor (Algarve, Alentejo e Ribatejo), Mário Novais e Horácio Novais (arquitetura), Gérard Castello-Lopes, Augusto Cabrita e Eduardo Gageiro — e do Inquérito à Arquitectura Popular em Portugal (SNA, 1961; OA, 2004). O banco percorre todo o país, do Minho às 26 NUTS III do continente e às regiões autónomas: as imagens são fotografias contemporâneas sob licença livre; os originais consultam-se no Centro Português de Fotografia (Porto) e no Arquivo Fotográfico do Arquivo Municipal de Lisboa.</span></div>
+<div class="linkbtns"><a href="https://arquivomunicipal.cm-lisboa.pt/" target="_blank" rel="noopener" class="i18n" data-pt="Arquivo Municipal de Lisboa" data-en="Lisbon Municipal Archive">Arquivo Municipal de Lisboa</a><a href="https://pt.wikipedia.org/wiki/Artur_Pastor" target="_blank" rel="noopener">Artur Pastor</a></div>
+</section>
+
+</div></div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4.5.0/dist/reveal.min.js"></script>
+<script>
+(function(){
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+Reveal.initialize({
+  hash:true, slideNumber:!isMobile, controls:true, progress:true,
+  center:false, width:1280, height:720, margin:isMobile?0.02:0.04,
+  minScale:0.2, maxScale:2.0,
+  touch:true, loop:false, keyboard:true, overview:true,
+  navigationMode:'linear', preloadIframes:true, autoAnimate:false,
+  transition:isMobile?'none':'slide', transitionSpeed:'fast',
+  embedded:false, hideInactiveCursor:true, hideCursorTime:3000
+});
+let lang='pt';
+const btn=document.getElementById('langBtn');
+function applyLang(l){lang=l;document.documentElement.lang=l;
+document.querySelectorAll('.i18n').forEach(el=>{if(el.dataset.built)return;const v=el.getAttribute(l==='pt'?'data-pt':'data-en');if(v!==null)el.textContent=v;});
+btn.textContent=l==='pt'?'EN / PT':'PT / EN';
+document.title=l==='pt'?'03 · AI&AA — Regulamento e Leituras-tipo | FAUL IAAA':'03 · AI&AA — Regulation and Sample Readings | FAUL IAAA';
+swapCaptions();wrapGlossary();(window.I18N_HOOKS||[]).forEach(f=>{try{f()}catch(_){}});}
+const CAPT={'Fachada azulejar · Lisboa':'Tiled facade · Lisbon','Espigueiros · Soajo':'Granaries · Soajo','Palheiros · Santana':'Thatch houses · Santana','MAAT · Lisboa':'MAAT · Lisbon','Chaminés · Alentejo':'Chimneys · Alentejo','Calçada · Lisboa':'Pavement · Lisbon','Escultura · J. Vasconcelos':'Sculpture · J. Vasconcelos','Tapeçaria · Portalegre':'Tapestry · Portalegre','Vitral · Lisboa':'Stained glass · Lisbon','Bordalo II · Funchal':'Bordalo II · Funchal','Vhils · Barreiro':'Vhils · Barreiro','Add Fuel · arte urbana':'Add Fuel · street art','Piódão · Xisto':'Piódão · Schist','Azenhas · Sintra':'Azenhas · Sintra','Sortelha · Granito':'Sortelha · Granite','Casa · Monsaraz':'House · Monsaraz','Mouraria · Lisboa':'Mouraria · Lisbon','Casa · Ponta Delgada':'House · Ponta Delgada','Espigueiros · Alto Minho':'Granaries · Alto Minho','Azulejo barroco · Cávado':'Baroque tiles · Cávado','Granito medieval · Ave':'Medieval granite · Ave','Ribeira · Porto':'Ribeira · Porto','Pitões · Barroso':'Pitões · Barroso','Ponte e rio · Tâmega e Sousa':'Bridge and river · Tâmega e Sousa','Socalcos · Douro':'Terraces · Douro','Cidadela · Trás-os-Montes':'Citadel · Trás-os-Montes','Palheiros · Costa Nova':'Thatch houses · Costa Nova','Xisto · Lousã':'Schist · Lousã','Calcário · Batalha':'Limestone · Batalha','Granito · Viseu':'Granite · Viseu','Monsanto · Beira Baixa':'Monsanto · Beira Baixa','Granito · Loriga':'Granite · Loriga','Muralhas · Óbidos':'Walls · Óbidos','Pedra · Tomar':'Stone · Tomar','Lezíria · Santarém':'Lezíria · Santarém','Calcário · Lisboa':'Limestone · Lisbon','Serra-mar · Arrábida':'Ridge and sea · Arrábida','Costa · Milfontes':'Coast · Milfontes','Planície · Beja':'Plain · Beja','Muralha · Marvão':'Walls · Marvão','Cal · Évora':'Whitewash · Évora','Cubos · Olhão':'Cubes · Olhão','Caldeira · Sete Cidades':'Crater · Sete Cidades','Socalcos · Funchal':'Terraces · Funchal'};
+function swapCaptions(){const en=document.documentElement.lang==='en';
+document.querySelectorAll('.mosaic .tile span,.vernac .vtile span').forEach(s=>{
+if(en){if(!s.dataset.pt)s.dataset.pt=s.textContent;const v=CAPT[s.dataset.pt];if(v)s.textContent=v;}
+else if(s.dataset.pt)s.textContent=s.dataset.pt;});}
+// Glossary: hover/tap any abbreviation for its definition
+const GLOSS={
+'P0':['Configuração — prompt inicial: grupo, NUTS III, municípios e sítio','Setup — initial prompt: group, NUTS III, municipalities and site'],
+'P1':['Território — enquadramento e tabela de síntese','Territory — framing and summary table'],
+'P2':['Lugar — nove dimensões de caracterização','Place — nine characterisation dimensions'],
+'P3':['Clima — EPW + IPMA + Köppen-Geiger','Climate — EPW + IPMA + Köppen-Geiger'],
+'P4':['Regulamento — extrato do PDM','Regulation — PDM extract'],
+'P5':['Cultura — referências vernáculas e contemporâneas','Culture — vernacular and contemporary references'],
+'P6':['Síntese — SWOT, volumetrias e programa','Synthesis — SWOT, massing options and programme'],
+'NUTS':['Nomenclatura das Unidades Territoriais para fins Estatísticos (UE/INE)','Nomenclature of Territorial Units for Statistics (EU/INE)'],
+'PDM':['Plano Diretor Municipal','Municipal Master Plan'],
+'EPW':['EnergyPlus Weather — ficheiro climático horário','EnergyPlus Weather — hourly climate file'],
+'IPMA':['Instituto Português do Mar e da Atmosfera','Portuguese Institute for Sea and Atmosphere'],
+'SWOT':['Forças, Fraquezas, Oportunidades, Ameaças','Strengths, Weaknesses, Opportunities, Threats'],
+'DGT':['Direção-Geral do Território','Directorate-General for Territory'],
+'SNIG':['Sistema Nacional de Informação Geográfica','National Geographic Information System'],
+'APA':['Agência Portuguesa do Ambiente','Portuguese Environment Agency'],
+'ANEPC':['Autoridade Nacional de Emergência e Proteção Civil','National Emergency and Civil Protection Authority'],
+'ICNF':['Instituto da Conservação da Natureza e das Florestas','Institute for Nature Conservation and Forests'],
+'LNEG':['Laboratório Nacional de Energia e Geologia','National Laboratory of Energy and Geology'],
+'INE':['Instituto Nacional de Estatística','Statistics Portugal'],
+'Pordata':['Base de dados da Fundação Francisco Manuel dos Santos','Database of the Francisco Manuel dos Santos Foundation'],
+'WGS84':['World Geodetic System 1984 — datum geodésico','World Geodetic System 1984 — geodetic datum'],
+'DMS':['Graus, minutos e segundos','Degrees, minutes and seconds'],
+'SNA':['Sindicato Nacional dos Arquitectos','National Union of Architects'],
+'OA':['Ordem dos Arquitectos — associação profissional','Portuguese Order of Architects — professional body'],
+'FAUL':['Faculdade de Arquitetura — Universidade de Lisboa','Lisbon School of Architecture — Universidade de Lisboa'],
+'IAAA':['Inteligência Artificial Aplicada à Arquitetura (unidade curricular)','Artificial Intelligence Applied to Architecture (course unit)'],
+'AML':['Área Metropolitana de Lisboa','Lisbon Metropolitan Area'],
+'CCDR':['Comissão de Coordenação e Desenvolvimento Regional','Regional Coordination and Development Commission']};
+const RXG=/\b(P[0-6]|NUTS|PDM|EPW|IPMA|SWOT|DGT|SNIG|APA|ANEPC|ICNF|LNEG|INE|Pordata|WGS84|DMS|SNA|OA|FAUL|IAAA|AML|CCDR)\b/g;
+function wrapGlossary(){const root=document.querySelector('.reveal .slides');if(!root)return;
+const li=document.documentElement.lang==='en'?1:0;
+const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode(n){
+if(!n.nodeValue||!n.nodeValue.trim())return NodeFilter.FILTER_REJECT;
+if(n.parentElement&&n.parentElement.closest('.abbr'))return NodeFilter.FILTER_REJECT;
+RXG.lastIndex=0;return RXG.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
+const nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+nodes.forEach(nd=>{const t=nd.nodeValue,frag=document.createDocumentFragment();let last=0,m;RXG.lastIndex=0;
+while((m=RXG.exec(t))){const term=m[0],g=GLOSS[term];if(!g)continue;
+frag.appendChild(document.createTextNode(t.slice(last,m.index)));
+const s=document.createElement('span');s.className='abbr';s.tabIndex=0;s.textContent=term;s.setAttribute('data-def',g[li]);
+frag.appendChild(s);last=m.index+term.length;}
+frag.appendChild(document.createTextNode(t.slice(last)));
+nd.parentNode.replaceChild(frag,nd);});}
+btn.addEventListener('click',()=>applyLang(lang==='pt'?'en':'pt'));
+document.addEventListener('keydown',e=>{if(e.key.toLowerCase()==='p'&&!e.metaKey&&!e.ctrlKey)applyLang(lang==='pt'?'en':'pt');});
+// NUTS flyover: hover on laptop, tap on mobile
+(function(){
+const fly=document.getElementById('nutFly'),img=document.getElementById('nutFlyImg'),
+title=document.getElementById('nutFlyTitle'),place=document.getElementById('nutFlyPlace'),
+wiki=document.getElementById('nutFlyWiki'),pin=document.getElementById('nutFlyPin');
+if(!fly) return;
+document.body.appendChild(fly);
+let pinned=null, langNow=()=>document.documentElement.lang==='en'?'en':'pt';
+function fill(btn){const seed=btn.dataset.seed||'nuts-portugal';
+img.onerror=function(){img.onerror=null;img.src='https://picsum.photos/seed/'+seed+'/680/380';};
+img.loading='lazy'; img.referrerPolicy='no-referrer';
+img.src=btn.dataset.img||('https://picsum.photos/seed/'+seed+'/680/380');
+img.alt=btn.textContent.trim();
+title.textContent=btn.textContent.trim();
+place.textContent=langNow()==='en'?(btn.dataset.enPlace||''): (btn.dataset.ptPlace||'');
+if(wiki)wiki.href=btn.dataset.wiki||'https://commons.wikimedia.org/';
+if(pin)pin.href=btn.dataset.pin||'https://www.pinterest.com/search/pins/?q='+encodeURIComponent(btn.textContent.trim());
+fly.setAttribute('aria-hidden','false');}
+function position(btn){fly.style.visibility='hidden';fly.classList.add('show');
+const fw=fly.offsetWidth||320, fh=fly.offsetHeight||300;
+fly.classList.remove('show');fly.style.visibility='';
+const r=btn.getBoundingClientRect();
+let x=Math.min(Math.max(8,r.left+r.width/2-fw/2),window.innerWidth-fw-8);
+let y=r.top-fh-10; if(y<60) y=r.bottom+10;
+if(y+fh>window.innerHeight-8) y=Math.max(60,window.innerHeight-fh-8);
+fly.style.left=Math.max(8,x)+'px'; fly.style.top=y+'px';}
+function show(btn){fill(btn);position(btn);fly.classList.add('show');
+document.querySelectorAll('.nut[aria-expanded="true"]').forEach(b=>{if(b!==btn)b.setAttribute('aria-expanded','false');});
+btn.setAttribute('aria-expanded','true');}
+function hide(btn){fly.classList.remove('show');fly.classList.remove('locked');fly.setAttribute('aria-hidden','true');
+if(btn)btn.setAttribute('aria-expanded','false');}
+let hideTimer=null;
+function scheduleHide(btn){clearTimeout(hideTimer);hideTimer=setTimeout(()=>{if(!pinned)hide(btn);},160);}
+document.querySelectorAll('.nut').forEach(btn=>{
+btn.setAttribute('aria-expanded','false');
+btn.addEventListener('mouseenter',()=>{if(pinned)return;clearTimeout(hideTimer);show(btn);});
+btn.addEventListener('mouseleave',()=>{if(pinned)return;scheduleHide(btn);});
+fly.addEventListener('mouseenter',()=>{clearTimeout(hideTimer);});
+btn.addEventListener('focus',()=>show(btn));
+btn.addEventListener('blur',()=>{if(pinned!==btn)hide(btn);});
+btn.addEventListener('click',e=>{e.stopPropagation();clearTimeout(hideTimer);
+if(pinned===btn){pinned=null;hide(btn);}else{pinned=btn;show(btn);fly.classList.add('locked');}});
+});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('#nutFly')&&!e.target.closest('.nut')){hide(pinned);pinned=null;}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&pinned){hide(pinned);pinned=null;}});
+if(window.Reveal&&Reveal.on){Reveal.on('slidechanged',()=>{fly.classList.remove('show');pinned=null;});}
+window.addEventListener('resize',()=>fly.classList.remove('show'));
+window.addEventListener('scroll',()=>{if(pinned){pinned=null;}fly.classList.remove('show');},true);
+})();
+// Prompt flyover for procedure cards: hover previews default prompt, click pins + enables copy
+(function(){
+const fly=document.getElementById('promptFly'); if(!fly) return;
+const title=document.getElementById('promptFlyTitle'),body=document.getElementById('promptFlyBody'),copy=document.getElementById('promptFlyCopy');
+document.body.appendChild(fly);
+let pinned=null, sticky=false, current=null, timer=null;
+const ENP={
+'P0 — Configuração':{t:'P0 — Setup',p:'P0: Group [n.] studies NUTS III [designation], municipalities [x, y], site [address]. Site centre coordinates (WGS84): lat. [00.0000° N], long. [00.0000° W] + [00°00′00″N, 00°00′00″W]. Site altitude: [___] m (source: [Google Earth / DGT / survey]). Prompts P1–P6 will run in this conversation. Memorise the context.'},
+'P1 — Território + P1-TAB':{t:'P1 — Territory + P1-TAB',p:'P1: Present the NUTS I/II/III framing, municipalities, area, population and regional role. Confirm and correct coordinates and altitude. Characterise the municipalities socio-economically with INE and Pordata (Francisco Manuel dos Santos Foundation) data: resident population and intercensal change, ageing index, density, dwellings, education, employment/unemployment and purchasing power — always with value, year, territorial level and source table. Return a table, five synthesis points and one concept sentence. | P1-TAB: With municipalities [x, y] and NUTS III [designation], build the socioeconomic table in Markdown with the EXACT columns: Indicator | [municipality x] | [municipality y] | NUTS III | Year | Source/table. ONE row per indicator. Sources ONLY: INE and Pordata. Unconfirmed data → “not confirmed” + where to look. No invented values.'},
+'P2 — Lugar (nove dimensões)':{t:'P2 — Place (nine dimensions)',p:'P2: Confirmed coordinates [lat./long. + altitude]. Attached: (a) Google Maps or equivalent image [1 km, 500 m maps, oblique Earth or DGT orthophoto — source and date]; (b) site photographs [authorship, date, viewpoint and orientation]. Characterise across the NINE dimensions: (1) chromatic palette; (2) soils; (3) vegetation and animal species; (4) seismic risk; (5) flood risk; (6) fire risk and history; (7) pollution and noise sources; (8) service provision; (9) architectural description. Table per dimension (state, source, design implication), figure-ground and three design leads. Flag the unverifiable.'},
+'P3 — Clima':{t:'P3 — Climate',p:'P3: For the site [coords + altitude ___ m], with EPW [station, distance ___ km, Δalt. ___ m], IPMA sheet [station/period] and Köppen-Geiger [code + meaning], cross the three sources. Six points for the first massing: hottest weeks, summer wind, rainfall, cold nights, shading need. State EPW/IPMA convergences and divergences. Two massing rules.'},
+'P4 — Regulamento':{t:'P4 — Regulation',p:'P4: The PDM extract is presented [paragraph/article + constraints]. Reformulate in plain language: height, index, occupancy, setbacks, heritage. State what would determine refusal + risk paragraph. Do not invoke articles not provided. Without an attached extract, provisional result.'},
+'P5 → P6 — Cultura → Síntese':{t:'P5 → P6 — Culture → Synthesis',p:'P5: For municipalities [x, y]: three vernacular climatic rules with examples; two nearby contemporary reference works (designation, authorship, year); one artistic or design trend. With sources. Do not invent — uncertain = “not confirmed”. | P6: With P1–P5: SWOT (2 per quadrant, ≥2 points with INE/Pordata value+year), 2 massing options (pros/cons), programme (m²/units), uncertainties + 3 points to verify on site.'}};
+function fill(btn){const en=document.documentElement.lang==='en',e=ENP[btn.dataset.title||''];
+title.textContent=en&&e?e.t:(btn.dataset.title||'');
+body.textContent=en&&e?e.p:(btn.dataset.prompt||'');
+fly.setAttribute('aria-hidden','false');}
+function position(btn){fly.style.visibility='hidden';fly.classList.add('show');
+const fw=fly.offsetWidth||400, fh=fly.offsetHeight||300;
+fly.classList.remove('show');fly.style.visibility='';
+const r=btn.getBoundingClientRect();
+let x=Math.min(Math.max(8,r.left+r.width/2-fw/2),window.innerWidth-fw-8);
+let y=r.bottom+10; if(y+fh>window.innerHeight-8) y=r.top-fh-10;
+if(y<60) y=Math.max(60,window.innerHeight-fh-8);
+fly.style.left=Math.max(8,x)+'px'; fly.style.top=y+'px';}
+function show(btn){current=btn;fill(btn);position(btn);fly.classList.add('show');}
+function hide(){fly.classList.remove('show');fly.classList.remove('locked');fly.setAttribute('aria-hidden','true');pinned=null;sticky=false;current=null;}
+function lock(btn){pinned=btn;sticky=true;fly.classList.add('locked');}
+function scheduleHide(){clearTimeout(timer);timer=setTimeout(()=>{if(!pinned)fly.classList.remove('show');},700);}
+document.querySelectorAll('.pcard').forEach(btn=>{
+btn.addEventListener('mouseenter',()=>{if(pinned)return;clearTimeout(timer);show(btn);});
+btn.addEventListener('mouseleave',()=>{if(pinned)return;scheduleHide();});
+btn.addEventListener('focus',()=>show(btn));
+btn.addEventListener('blur',()=>{if(!pinned)fly.classList.remove('show');});
+btn.addEventListener('click',e=>{e.stopPropagation();clearTimeout(timer);
+if(pinned===btn&&sticky){hide();}else{show(btn);lock(btn);}});
+});
+fly.addEventListener('mouseenter',()=>{clearTimeout(timer);});
+fly.addEventListener('mouseleave',()=>{if(!pinned)fly.classList.remove('show');});
+if(copy)copy.addEventListener('click',e=>{e.stopPropagation();
+const t=body.textContent||'';
+function done(){const en=document.documentElement.lang==='en';copy.textContent=en?'Copied':'Copiado';setTimeout(()=>{copy.textContent=en?'Copy prompt':'Copiar prompt';},1600);}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done).catch(()=>fallback());}else fallback();
+function fallback(){const ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(_){}document.body.removeChild(ta);}});
+document.addEventListener('click',e=>{if(pinned&&!e.target.closest('#promptFly')&&!e.target.closest('.pcard'))hide();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&pinned)hide();});
+if(window.Reveal&&Reveal.on){Reveal.on('slidechanged',()=>hide());}
+window.addEventListener('resize',()=>hide());
+})();
+applyLang('pt');
+})();
+// Map search (Google pane) + Coordinates/altitude pane (Leaflet + OpenTopoData, no key)
+(function(){
+const form=document.getElementById('mapSearch'); if(!form) return;
+const input=document.getElementById('mapQuery'), frame=document.getElementById('gmap'), readEl=document.getElementById('mapRead');
+form.addEventListener('keydown',e=>e.stopPropagation());
+form.addEventListener('submit',e=>{e.preventDefault();
+const q=(input.value||'').trim(); if(!q) return;
+if(frame){frame.title='Google Maps — '+q;frame.src='https://www.google.com/maps?q='+encodeURIComponent(q)+'&z=16&output=embed';}
+locate(q);});
+function dms(dec,pos,neg){const a=Math.abs(dec);let d=Math.floor(a),m=Math.floor((a-d)*60),s=Math.round(((a-d)*60-m)*60);
+if(s===60){s=0;m++;}if(m===60){m=0;d++;}
+return d+'°'+String(m).padStart(2,'0')+"'"+String(s).padStart(2,'0')+'"'+(dec>=0?pos:neg);}
+function fmt(p){return p.lat.toFixed(4)+'° '+(p.lat>=0?'N':'S')+', '+p.lng.toFixed(4)+'° '+(p.lng>=0?'E':'W')+' · '+dms(p.lat,'N','S')+' '+dms(p.lng,'E','W');}
+function render(p,alt){if(!readEl)return;
+readEl.innerHTML='<b>'+p.name+'</b><br>'+fmt(p)+'<br><b>Alt</b> '+alt;}
+function altitude(p){const loc=p.lat.toFixed(5)+','+p.lng.toFixed(5);
+const srcs=['https://api.opentopodata.org/v1/eudem25m?locations=',
+'https://api.opentopodata.org/v1/aster30m?locations=',
+'https://api.open-elevation.com/api/v1/lookup?locations='];
+function val(d){if(d&&d.results&&d.results[0]){const v=d.results[0].elevation;if(typeof v==='number')return v;}return null;}
+(function next(i){if(i>=srcs.length){render(p,document.documentElement.lang==='en'?'n.d. (offline)':'n.d. (sem rede)');return;}
+const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),10000);
+fetch(srcs[i]+loc,{signal:ctl.signal}).then(r=>r.json()).then(d=>{const v=val(d);
+if(v===null)next(i+1);else render(p,Math.round(v)+' m (<a href="https://www.opentopodata.org/" target="_blank" rel="noopener" style="color:var(--tram);font-weight:700;pointer-events:auto">OpenTopoData</a>)');})
+.catch(()=>next(i+1)).finally(()=>clearTimeout(to));})(0);}
+function locate(q){if(!readEl)return;const EN=document.documentElement.lang==='en';
+readEl.textContent=EN?('Locating "'+q+'"…'):('A localizar “'+q+'”…');
+fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=pt&q='+encodeURIComponent(q))
+.then(r=>r.json()).then(a=>{if(!(a&&a[0])){readEl.textContent=EN?'Site not found — check the query.':'Sítio não encontrado — verifique a pesquisa.';return;}
+const p={lat:parseFloat(a[0].lat),lng:parseFloat(a[0].lon),name:(a[0].display_name||q).split(',').slice(0,2).join(',')};
+render(p,'…');altitude(p);}).catch(()=>{readEl.textContent=document.documentElement.lang==='en'?'Reading unavailable (offline).':'Leitura indisponível (sem rede).';});}
+locate(input.value.trim());
+})();
+// P6-CTX: assemble contextual Nano Banana prompt; optional condensation via Muse Spark (browser-side, GitHub Pages safe)
+(function(){
+const $=id=>document.getElementById(id);
+if(!$('p6build'))return;
+const F=['p6s1','p6s2','p6w1','p6w2','p6o1','p6o2','p6t1','p6t2'];
+const status=$('p6status'), out=$('p6final'), key=$('p6key');
+const E=()=>document.documentElement.lang==='en';
+(window.I18N_HOOKS=window.I18N_HOOKS||[]).push(()=>{const en=document.documentElement.lang==='en';
+document.querySelectorAll('.fld[data-en-ph]').forEach(el=>{if(!el.dataset.ptPh)el.dataset.ptPh=el.getAttribute('placeholder');el.setAttribute('placeholder',en?el.dataset.enPh:el.dataset.ptPh);});});
+try{const k=localStorage.getItem('iaaa_muse_key');if(k)key.value=k;}catch(_){}
+function vals(){return F.map(id=>($(id).value||'').trim());}
+function build(){const v=vals(),site=($('p6site').value||'').trim();
+const miss=v.map((x,i)=>x?null:['S1','S2','W1','W2','O1','O2','T1','T2'][i]).filter(Boolean);
+if(miss.length||!site){status.textContent=(E()?'Missing: ':'Em falta: ')+[site?'':null,E()?'site':'sítio',...miss].filter(Boolean).join(', ')+(E()?' — without verified data the result would be generic.':' — sem dados verificados, o resultado seria genérico.');return null;}
+if(/\[|\]/.test(v.join('')+site)){status.textContent=E()?'Brackets [ ] remain — complete with P1–P6 data.':'Ainda existem parênteses [ ] por substituir — complete com os dados de P1–P6.';return null;}
+const t='Clean architectural SWOT analysis board, infographic, 16:9 landscape. Warm off-white background. Four equal quadrants labelled, in dark navy sans-serif capitals: top-left FORÇAS, top-right FRAQUEZAS, bottom-left OPORTUNIDADES, bottom-right AMEAÇAS. Each quadrant MUST contain EXACTLY two short bullet lines in Portuguese: '+v[0]+' / '+v[1]+' // '+v[2]+' / '+v[3]+' // '+v[4]+' / '+v[5]+' // '+v[6]+' / '+v[7]+', concerning the site '+site+'. Thin gold divider lines. Narrow footer strip with: coordinates, altitude, EPW station, Köppen-Geiger code. Flat vector studio style, generous whitespace, highly legible, no photographs, no additional text.';
+out.textContent=t;out.dataset.built='1';status.dataset.built='1';status.textContent=E()?'Contextual prompt assembled from group data — ready to generate in Nano Banana.':'Prompt contextual montado a partir dos dados do grupo — pronto a gerar no Nano Banana.';return t;}
+$('p6build').addEventListener('click',e=>{e.preventDefault();build();});
+$('p6copy').addEventListener('click',e=>{e.preventDefault();const t=build()||out.textContent;
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>{status.textContent=E()?'Prompt copied.':'Prompt copiado.';}).catch(()=>{});}});
+$('p6gen').addEventListener('click',e=>{e.preventDefault();
+const raw=($('p6raw').value||'').trim(),k=(key.value||'').trim();
+if(!raw){status.textContent=E()?'Paste the full P6 text in the box above first.':'Cole primeiro o texto integral do P6 na caixa acima.';return;}
+if(!k){status.textContent=E()?'Enter your Meta Model API key (free credits at developer.meta.com). It stays in your browser.':'Indique a sua chave Meta Model API (créditos gratuitos em developer.meta.com). Fica só no seu navegador.';return;}
+try{localStorage.setItem('iaaa_muse_key',k);}catch(_){}
+status.textContent=E()?'Condensing via Muse Spark…':'A condensar via Muse Spark…';
+const ctl=new AbortController();const to=setTimeout(()=>ctl.abort(),45000);
+fetch('https://api.meta.ai/v1/chat/completions',{method:'POST',signal:ctl.signal,
+headers:{'Authorization':'Bearer '+k,'Content-Type':'application/json'},
+body:JSON.stringify({model:'muse-spark-1.3',temperature:0.2,max_tokens:600,
+messages:[{role:'system',content:'Condensa o texto P6 em EXATAMENTE 8 linhas curtas (máx. 90 caracteres cada), em português, pela ordem: 2 forças, 2 fraquezas, 2 oportunidades, 2 ameaças. Devolve apenas as 8 linhas, uma por linha, sem numeração nem comentários.'},
+{role:'user',content:raw}]})})
+.then(r=>{if(!r.ok)throw new Error('HTTP '+r.status);return r.json();})
+.then(d=>{const txt=d&&d.choices&&d.choices[0]&&d.choices[0].message&&d.choices[0].message.content||'';
+const lines=txt.split(/\n+/).map(s=>s.replace(/^[\s>•\-\*\d\.\)\:\]]+/,'').trim()).filter(s=>s.length>3);
+if(lines.length<8){status.textContent=E()?'Incomplete model response — complete the fields manually.':'Resposta incompleta do modelo — complete manualmente os campos.';return;}
+F.forEach((id,i)=>{$(id).value=(lines[i]||'').slice(0,120);});build();})
+.catch(()=>{status.textContent=E()?'Failed (network, key, credits or CORS) — fill the 8 fields manually.':'Falhou (rede, chave, créditos ou CORS) — preencha os 8 campos manualmente.';})
+.finally(()=>clearTimeout(to));});
+})();
+</script>
+</body>
+</html>
